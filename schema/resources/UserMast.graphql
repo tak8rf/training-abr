@@ -3,7 +3,6 @@ type UserMast {
     name: String!
     email: String!
     userIcon: S3Object!
-
     # status
     createdAt: AWSTimestamp!
     updatedAt: AWSTimestamp!
@@ -14,7 +13,6 @@ input UserMastInput {
     name: String!
     email: String!
     userIcon: S3Object!
-
     # status
     createdAt: AWSTimestamp!
     updatedAt: AWSTimestamp!

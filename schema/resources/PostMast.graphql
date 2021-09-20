@@ -1,11 +1,15 @@
 type PostMast {
     postID: ID!
-    userID: ID!
+    ownerUserID: ID!
     image: S3Object!
+    # status
+    createdAt: AWSTimestamp!
 }
 
 input PostMast {
     postID: ID!
-    userID: ID!
+    ownerUserID: ID!
     image: S3Object!
+    # status
+    createdAt: AWSTimestamp!
 }

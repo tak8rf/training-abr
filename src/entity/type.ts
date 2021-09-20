@@ -31,9 +31,10 @@ export type Scalars = {
 
 
 export type PostMast = {
+  createdAt: Scalars['AWSTimestamp'];
   image: S3Object;
+  ownerUserID: Scalars['ID'];
   postID: Scalars['ID'];
-  userID: Scalars['ID'];
 };
 
 export type S3Object = {

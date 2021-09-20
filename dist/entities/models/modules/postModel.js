@@ -1,7 +1,8 @@
-import { PostMast } from '../../../entity/type';
-import { BaseModel } from './_baseModel';
-
-export class PostModel extends BaseModel<PostMast> {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.PostModel = void 0;
+const _baseModel_1 = require("./_baseModel");
+class PostModel extends _baseModel_1.BaseModel {
     // ============================================
     // getters
     // ============================================
@@ -30,11 +31,10 @@ export class PostModel extends BaseModel<PostMast> {
      * 画像の登録
      * @param file
      */
-    async setImage(file: File) {
+    async setImage(file) {
         const path = `user/${this.ownerUserID}/post/${this.postID}/${new Date().getTime()}.${file.name}`;
         this.mast.image = await this.repositoryContainer.s3Repository.addFile(path, file);
     }
-
     /**
      * 投稿を行う
      */
@@ -45,3 +45,4 @@ export class PostModel extends BaseModel<PostMast> {
         }
     }
 }
+exports.PostModel = PostModel;

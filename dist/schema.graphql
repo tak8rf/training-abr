@@ -17,9 +17,10 @@ scalar AWSTimestamp
 scalar AWSURL
 
 input PostMast {
+  createdAt: AWSTimestamp!
   image: S3Object!
+  ownerUserID: ID!
   postID: ID!
-  userID: ID!
 }
 
 type S3Object {

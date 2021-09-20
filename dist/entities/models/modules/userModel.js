@@ -1,8 +1,8 @@
-import { PostModel } from '..';
-import { UserMast } from '../../../entity/type';
-import { BaseModel } from './_baseModel';
-
-export class UserModel extends BaseModel<UserMast> {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.UserModel = void 0;
+const _baseModel_1 = require("./_baseModel");
+class UserModel extends _baseModel_1.BaseModel {
     // ============================================
     // getters
     // ============================================
@@ -21,13 +21,13 @@ export class UserModel extends BaseModel<UserMast> {
     get name() {
         return this.mast.name;
     }
-    set name(input: string) {
+    set name(input) {
         this.mast.name = input;
     }
     get email() {
         return this.mast.email;
     }
-    set email(input: string) {
+    set email(input) {
         this.mast.email = input;
     }
     // ============================================
@@ -43,11 +43,10 @@ export class UserModel extends BaseModel<UserMast> {
      * アイコン画像をセットする
      * @param file
      */
-    async setIcon(file: File) {
+    async setIcon(file) {
         const path = `user/${this.userID}/iconImage/${new Date().getTime()}.${file.name}`;
         this.mast.userIcon = await this.repositoryContainer.s3Repository.addFile(path, file);
     }
-
     /**
      * ユーザー情報を新規登録、または更新する
      */
@@ -58,20 +57,21 @@ export class UserModel extends BaseModel<UserMast> {
                 this.mast.createdAt = now;
                 this.mast.updatedAt = now;
                 this.mast = await this.repositoryContainer.userMastRepository.addUserMast(this.mast);
-            } else {
+            }
+            else {
                 this.mast.updatedAt = now;
                 this.mast = await this.repositoryContainer.userMastRepository.updateUserMast(this.mast);
             }
             this.isNew = false;
         }
     }
-
     /**
      * このユーザーの投稿を取得する
      * @returns
      */
-    async fetchMyPosts(): Promise<PostModel[]> {
+    async fetchMyPosts() {
         const res = await this.repositoryContainer.postMastRepository.fetchPostsByOwnerUserID(this.userID);
         return res.map((item) => this.modelFactory.PostModel(item));
     }
 }
+exports.UserModel = UserModel;
