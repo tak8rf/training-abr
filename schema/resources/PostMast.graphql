@@ -1,0 +1,11 @@
+type PostMast {
+    postID: ID!
+    userID: ID!
+    image: S3Object!
+}
+
+input PostMast {
+    postID: ID!
+    userID: ID!
+    image: S3Object!
+}

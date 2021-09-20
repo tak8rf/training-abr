@@ -1,0 +1,55 @@
+scalar AWSDate
+
+scalar AWSDateTime
+
+scalar AWSEmail
+
+scalar AWSIPAddress
+
+scalar AWSJSON
+
+scalar AWSPhone
+
+scalar AWSTime
+
+scalar AWSTimestamp
+
+scalar AWSURL
+
+input PostMast {
+  image: S3Object!
+  postID: ID!
+  userID: ID!
+}
+
+type S3Object {
+  url: AWSURL!
+  bucket: String!
+  key: String!
+  region: String!
+}
+
+type S3ObjectInput {
+  url: AWSURL!
+  bucket: String!
+  key: String!
+  region: String!
+}
+
+type UserMast {
+  userID: ID!
+  name: String!
+  email: String!
+  userIcon: S3Object!
+  createdAt: AWSTimestamp!
+  updatedAt: AWSTimestamp!
+}
+
+input UserMastInput {
+  userID: ID!
+  name: String!
+  email: String!
+  userIcon: S3Object!
+  createdAt: AWSTimestamp!
+  updatedAt: AWSTimestamp!
+}
