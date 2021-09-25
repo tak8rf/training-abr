@@ -5,7 +5,7 @@ type S3Object {
     region: String!
 }
 
-type S3ObjectInput {
+input S3ObjectInput {
     url: AWSURL!
     bucket: String!
     key: String!

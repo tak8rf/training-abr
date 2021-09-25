@@ -31,10 +31,17 @@ export type Scalars = {
 
 
 export type PostMast = {
-  createdAt: Scalars['AWSTimestamp'];
-  image: S3Object;
-  ownerUserID: Scalars['ID'];
   postID: Scalars['ID'];
+  ownerUserID: Scalars['ID'];
+  image: S3Object;
+  createdAt: Scalars['AWSTimestamp'];
+};
+
+export type PostMastInput = {
+  postID: Scalars['ID'];
+  ownerUserID: Scalars['ID'];
+  image: S3ObjectInput;
+  createdAt: Scalars['AWSTimestamp'];
 };
 
 export type S3Object = {
@@ -55,7 +62,7 @@ export type UserMast = {
   userID: Scalars['ID'];
   name: Scalars['String'];
   email: Scalars['String'];
-  userIcon: S3Object;
+  userIcon?: Maybe<S3Object>;
   createdAt: Scalars['AWSTimestamp'];
   updatedAt: Scalars['AWSTimestamp'];
 };
@@ -64,7 +71,7 @@ export type UserMastInput = {
   userID: Scalars['ID'];
   name: Scalars['String'];
   email: Scalars['String'];
-  userIcon: S3Object;
+  userIcon?: Maybe<S3ObjectInput>;
   createdAt: Scalars['AWSTimestamp'];
   updatedAt: Scalars['AWSTimestamp'];
 };

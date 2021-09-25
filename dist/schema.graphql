@@ -16,11 +16,18 @@ scalar AWSTimestamp
 
 scalar AWSURL
 
-input PostMast {
-  createdAt: AWSTimestamp!
-  image: S3Object!
-  ownerUserID: ID!
+type PostMast {
   postID: ID!
+  ownerUserID: ID!
+  image: S3Object!
+  createdAt: AWSTimestamp!
+}
+
+input PostMastInput {
+  postID: ID!
+  ownerUserID: ID!
+  image: S3ObjectInput!
+  createdAt: AWSTimestamp!
 }
 
 type S3Object {
@@ -30,7 +37,7 @@ type S3Object {
   region: String!
 }
 
-type S3ObjectInput {
+input S3ObjectInput {
   url: AWSURL!
   bucket: String!
   key: String!
@@ -41,7 +48,7 @@ type UserMast {
   userID: ID!
   name: String!
   email: String!
-  userIcon: S3Object!
+  userIcon: S3Object
   createdAt: AWSTimestamp!
   updatedAt: AWSTimestamp!
 }
@@ -50,7 +57,7 @@ input UserMastInput {
   userID: ID!
   name: String!
   email: String!
-  userIcon: S3Object!
+  userIcon: S3ObjectInput
   createdAt: AWSTimestamp!
   updatedAt: AWSTimestamp!
 }

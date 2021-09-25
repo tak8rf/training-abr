@@ -28,10 +28,16 @@ export declare type Scalars = {
     AWSURL: string;
 };
 export declare type PostMast = {
-    createdAt: Scalars['AWSTimestamp'];
-    image: S3Object;
-    ownerUserID: Scalars['ID'];
     postID: Scalars['ID'];
+    ownerUserID: Scalars['ID'];
+    image: S3Object;
+    createdAt: Scalars['AWSTimestamp'];
+};
+export declare type PostMastInput = {
+    postID: Scalars['ID'];
+    ownerUserID: Scalars['ID'];
+    image: S3ObjectInput;
+    createdAt: Scalars['AWSTimestamp'];
 };
 export declare type S3Object = {
     url: Scalars['AWSURL'];
@@ -49,7 +55,7 @@ export declare type UserMast = {
     userID: Scalars['ID'];
     name: Scalars['String'];
     email: Scalars['String'];
-    userIcon: S3Object;
+    userIcon?: Maybe<S3Object>;
     createdAt: Scalars['AWSTimestamp'];
     updatedAt: Scalars['AWSTimestamp'];
 };
@@ -57,7 +63,7 @@ export declare type UserMastInput = {
     userID: Scalars['ID'];
     name: Scalars['String'];
     email: Scalars['String'];
-    userIcon: S3Object;
+    userIcon?: Maybe<S3ObjectInput>;
     createdAt: Scalars['AWSTimestamp'];
     updatedAt: Scalars['AWSTimestamp'];
 };

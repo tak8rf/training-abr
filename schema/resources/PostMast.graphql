@@ -6,10 +6,10 @@ type PostMast {
     createdAt: AWSTimestamp!
 }
 
-input PostMast {
+input PostMastInput {
     postID: ID!
     ownerUserID: ID!
-    image: S3Object!
+    image: S3ObjectInput!
     # status
     createdAt: AWSTimestamp!
 }
