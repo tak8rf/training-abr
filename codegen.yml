@@ -15,7 +15,7 @@ config:
         AWSPhone: string
         AWSIPAddress: string
 generates:
-    src/entity/type.ts:
+    src/entities/type.ts:
         plugins:
             - add:
                   content: '/* tslint:disable */'

@@ -10,19 +10,4 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.RepositoryContainer = void 0;
-__exportStar(require("./modules/S3Repository"), exports);
-__exportStar(require("./modules/postMastRepository"), exports);
-__exportStar(require("./modules/userMastRepository"), exports);
-class RepositoryContainer {
-    constructor(
-    // object
-    s3Repository, //
-    // entity
-    postMastRepository, userMastRepository) {
-        this.s3Repository = s3Repository;
-        this.postMastRepository = postMastRepository;
-        this.userMastRepository = userMastRepository;
-    }
-}
-exports.RepositoryContainer = RepositoryContainer;
+__exportStar(require("./modules/S3ObjectDto"), exports);

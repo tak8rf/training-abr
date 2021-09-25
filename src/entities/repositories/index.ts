@@ -8,7 +8,9 @@ export * from './modules/userMastRepository';
 
 export class RepositoryContainer {
     constructor(
+        // object
         public s3Repository: IS3Repository, //
+        // entity
         public postMastRepository: IPostMastRepository,
         public userMastRepository: IUserMastRepository,
     ) {}

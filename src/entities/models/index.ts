@@ -1,4 +1,4 @@
-import { PostMast, UserMast } from '../../entity/type';
+import { PostMast, UserMast } from '../type';
 import { RepositoryContainer } from '../repositories';
 import { PostModel } from './modules/postModel';
 import { UserModel } from './modules/userModel';

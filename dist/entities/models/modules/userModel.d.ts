@@ -1,5 +1,5 @@
 import { PostModel } from '..';
-import { UserMast } from '../../../entity/type';
+import { UserMast } from '../../type';
 import { BaseModel } from './_baseModel';
 export declare class UserModel extends BaseModel<UserMast> {
     get userID(): string;

@@ -1,4 +1,4 @@
-import { PostMast, Scalars } from '../../../entity/type';
+import { PostMast, Scalars } from '../../type';
 export interface IPostMastRepository {
     addPost(input: PostMast): Promise<PostMast>;
     deletePost(postID: Scalars['ID']): Promise<PostMast>;

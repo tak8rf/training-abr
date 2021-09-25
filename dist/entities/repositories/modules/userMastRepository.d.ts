@@ -1,4 +1,4 @@
-import { Scalars, UserMast } from '../../../entity/type';
+import { Scalars, UserMast } from '../../type';
 export interface IUserMastRepository {
     addUserMast(input: UserMast): Promise<UserMast>;
     updateUserMast(input: UserMast): Promise<UserMast>;

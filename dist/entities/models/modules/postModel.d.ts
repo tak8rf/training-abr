@@ -1,4 +1,4 @@
-import { PostMast } from '../../../entity/type';
+import { PostMast } from '../../type';
 import { BaseModel } from './_baseModel';
 export declare class PostModel extends BaseModel<PostMast> {
     get postID(): string;
