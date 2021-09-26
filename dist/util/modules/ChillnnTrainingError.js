@@ -14,6 +14,7 @@ class ChillnnTrainingError extends Error {
 }
 exports.ChillnnTrainingError = ChillnnTrainingError;
 const errorMessages = {
+    chillnnTraining_401_notSignIn: 'サインインしていません',
     chillnnTraining_404_resourceNotFound: 'リソースが見つかりません',
     chillnnTraining_500_systemError: 'システムエラーです',
 };
