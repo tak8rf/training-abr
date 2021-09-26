@@ -13,3 +13,4 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./dto"), exports);
 __exportStar(require("./models"), exports);
 __exportStar(require("./repositories"), exports);
+__exportStar(require("./type"), exports);
