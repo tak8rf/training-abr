@@ -16,6 +16,11 @@ scalar AWSTimestamp
 
 scalar AWSURL
 
+enum ErrorCode {
+  chillnnTraining_404_resourceNotFound
+  chillnnTraining_500_systemError
+}
+
 type PostMast {
   postID: ID!
   ownerUserID: ID!

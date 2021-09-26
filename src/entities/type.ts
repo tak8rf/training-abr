@@ -30,6 +30,11 @@ export type Scalars = {
 
 
 
+export enum ErrorCode {
+  chillnnTraining_404_resourceNotFound = 'chillnnTraining_404_resourceNotFound',
+  chillnnTraining_500_systemError = 'chillnnTraining_500_systemError'
+}
+
 export type PostMast = {
   postID: Scalars['ID'];
   ownerUserID: Scalars['ID'];

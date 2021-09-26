@@ -1,0 +1,4 @@
+enum ErrorCode {
+    chillnnTraining_404_resourceNotFound
+    chillnnTraining_500_systemError
+}

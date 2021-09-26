@@ -27,6 +27,10 @@ export declare type Scalars = {
     AWSTimestamp: number;
     AWSURL: string;
 };
+export declare enum ErrorCode {
+    chillnnTraining_404_resourceNotFound = "chillnnTraining_404_resourceNotFound",
+    chillnnTraining_500_systemError = "chillnnTraining_500_systemError"
+}
 export declare type PostMast = {
     postID: Scalars['ID'];
     ownerUserID: Scalars['ID'];
