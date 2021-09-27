@@ -37,12 +37,14 @@ export declare type PostMast = {
     ownerUserID: Scalars['ID'];
     image: S3Object;
     createdAt: Scalars['AWSTimestamp'];
+    deletedAt?: Maybe<Scalars['AWSTimestamp']>;
 };
 export declare type PostMastInput = {
     postID: Scalars['ID'];
     ownerUserID: Scalars['ID'];
     image: S3ObjectInput;
     createdAt: Scalars['AWSTimestamp'];
+    deletedAt?: Maybe<Scalars['AWSTimestamp']>;
 };
 export declare type S3Object = {
     url: Scalars['AWSURL'];

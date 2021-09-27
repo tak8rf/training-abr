@@ -27,6 +27,7 @@ type PostMast {
   ownerUserID: ID!
   image: S3Object!
   createdAt: AWSTimestamp!
+  deletedAt: AWSTimestamp
 }
 
 input PostMastInput {
@@ -34,6 +35,7 @@ input PostMastInput {
   ownerUserID: ID!
   image: S3ObjectInput!
   createdAt: AWSTimestamp!
+  deletedAt: AWSTimestamp
 }
 
 type S3Object {

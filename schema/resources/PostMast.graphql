@@ -4,6 +4,7 @@ type PostMast {
     image: S3Object!
     # status
     createdAt: AWSTimestamp!
+    deletedAt: AWSTimestamp
 }
 
 input PostMastInput {
@@ -12,4 +13,5 @@ input PostMastInput {
     image: S3ObjectInput!
     # status
     createdAt: AWSTimestamp!
+    deletedAt: AWSTimestamp
 }

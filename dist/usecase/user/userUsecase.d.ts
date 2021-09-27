@@ -1,9 +1,9 @@
-import { ModelFactory, RepositoryContainer, Scalars } from '../..';
+import { ModelFactory, RepositoryContainer, Scalars, UserModel } from '../..';
 export declare class UserUsecase {
     private repositoryContainer;
     private modelFactory;
     constructor(repositoryContainer: RepositoryContainer, //
     modelFactory: ModelFactory);
-    fetchMyUserModel(): Promise<import("../..").UserModel>;
-    fetchUserModelByUserID(userID: Scalars['ID']): Promise<import("../..").UserModel>;
+    fetchMyUserModel(): Promise<UserModel>;
+    fetchUserModelByUserID(userID: Scalars['ID']): Promise<UserModel>;
 }

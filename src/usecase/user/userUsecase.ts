@@ -1,4 +1,4 @@
-import { ChillnnTrainingError, ErrorCode, ModelFactory, RepositoryContainer, Scalars } from '../..';
+import { ChillnnTrainingError, ErrorCode, ModelFactory, RepositoryContainer, Scalars, UserModel } from '../..';
 
 export class UserUsecase {
     constructor(

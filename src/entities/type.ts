@@ -41,6 +41,7 @@ export type PostMast = {
   ownerUserID: Scalars['ID'];
   image: S3Object;
   createdAt: Scalars['AWSTimestamp'];
+  deletedAt?: Maybe<Scalars['AWSTimestamp']>;
 };
 
 export type PostMastInput = {
@@ -48,6 +49,7 @@ export type PostMastInput = {
   ownerUserID: Scalars['ID'];
   image: S3ObjectInput;
   createdAt: Scalars['AWSTimestamp'];
+  deletedAt?: Maybe<Scalars['AWSTimestamp']>;
 };
 
 export type S3Object = {
