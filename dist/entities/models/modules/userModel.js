@@ -15,6 +15,14 @@ class UserModel extends _baseModel_1.BaseModel {
     get updatedAt() {
         return this.mast.updatedAt;
     }
+    get userIcon() {
+        if (this.mast.userIcon) {
+            return this.mast.userIcon.url;
+        }
+        else {
+            return this.repositoryContainer.s3Repository.getSampleImage().url;
+        }
+    }
     // ============================================
     // getter / setter
     // ============================================
