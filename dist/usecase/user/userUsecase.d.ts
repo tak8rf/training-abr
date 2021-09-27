@@ -6,4 +6,5 @@ export declare class UserUsecase {
     modelFactory: ModelFactory);
     fetchMyUserModel(): Promise<UserModel>;
     fetchUserModelByUserID(userID: Scalars['ID']): Promise<UserModel>;
+    fetchAllUser(): Promise<UserModel[]>;
 }

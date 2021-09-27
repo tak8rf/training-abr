@@ -1,4 +1,4 @@
-import { ChillnnTrainingError, ErrorCode, ModelFactory, RepositoryContainer, Scalars, UserModel } from '../..';
+import { ChillnnTrainingError, compareNumDesc, ErrorCode, ModelFactory, RepositoryContainer, Scalars, UserModel } from '../..';
 
 export class UserUsecase {
     constructor(
@@ -21,5 +21,10 @@ export class UserUsecase {
             throw new ChillnnTrainingError(ErrorCode.chillnnTraining_404_resourceNotFound);
         }
         return this.modelFactory.UserModel(user);
+    }
+
+    async fetchAllUser() {
+        const users = await this.repositoryContainer.userMastRepository.fetchAllUser();
+        return users.map((user) => this.modelFactory.UserModel(user)).sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
     }
 }
