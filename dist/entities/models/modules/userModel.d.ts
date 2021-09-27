@@ -25,4 +25,5 @@ export declare class UserModel extends BaseModel<UserMast> {
      * @returns
      */
     fetchMyPosts(): Promise<PostModel[]>;
+    createNewPost(): PostModel;
 }

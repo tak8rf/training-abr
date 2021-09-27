@@ -1,8 +1,17 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PostModel = void 0;
+const __1 = require("../../..");
 const _baseModel_1 = require("./_baseModel");
 class PostModel extends _baseModel_1.BaseModel {
+    static getBlanc(ownerUserID, image) {
+        return {
+            postID: __1.generateUUID(),
+            ownerUserID,
+            image,
+            createdAt: new Date().getTime(),
+        };
+    }
     // ============================================
     // getters
     // ============================================

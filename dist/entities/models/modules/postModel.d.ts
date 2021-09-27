@@ -1,6 +1,8 @@
+import { S3Object, Scalars } from '../..';
 import { PostMast } from '../../type';
 import { BaseModel } from './_baseModel';
 export declare class PostModel extends BaseModel<PostMast> {
+    static getBlanc(ownerUserID: Scalars['ID'], image: S3Object): PostMast;
     get postID(): string;
     get ownerUserID(): string;
     get createdAt(): number;

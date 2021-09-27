@@ -1,7 +1,17 @@
+import { S3Object, Scalars } from '../..';
+import { generateUUID } from '../../..';
 import { PostMast } from '../../type';
 import { BaseModel } from './_baseModel';
 
 export class PostModel extends BaseModel<PostMast> {
+    static getBlanc(ownerUserID: Scalars['ID'], image: S3Object): PostMast {
+        return {
+            postID: generateUUID(),
+            ownerUserID,
+            image,
+            createdAt: new Date().getTime(),
+        };
+    }
     // ============================================
     // getters
     // ============================================

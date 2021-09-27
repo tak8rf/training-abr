@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserModel = void 0;
+const __1 = require("..");
 const _baseModel_1 = require("./_baseModel");
 class UserModel extends _baseModel_1.BaseModel {
     // ============================================
@@ -80,6 +81,11 @@ class UserModel extends _baseModel_1.BaseModel {
     async fetchMyPosts() {
         const res = await this.repositoryContainer.postMastRepository.fetchPostsByOwnerUserID(this.userID);
         return res.map((item) => this.modelFactory.PostModel(item));
+    }
+    createNewPost() {
+        return this.modelFactory.PostModel(__1.PostModel.getBlanc(this.userID, this.repositoryContainer.s3Repository.getSampleImage()), {
+            isNew: true,
+        });
     }
 }
 exports.UserModel = UserModel;

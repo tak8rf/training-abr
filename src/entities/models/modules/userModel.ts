@@ -81,4 +81,10 @@ export class UserModel extends BaseModel<UserMast> {
         const res = await this.repositoryContainer.postMastRepository.fetchPostsByOwnerUserID(this.userID);
         return res.map((item) => this.modelFactory.PostModel(item));
     }
+
+    createNewPost(): PostModel {
+        return this.modelFactory.PostModel(PostModel.getBlanc(this.userID, this.repositoryContainer.s3Repository.getSampleImage()), {
+            isNew: true,
+        });
+    }
 }
