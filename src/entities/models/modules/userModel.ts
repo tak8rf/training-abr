@@ -64,10 +64,10 @@ export class UserModel extends BaseModel<UserMast> {
             if (this.isNew) {
                 this.mast.createdAt = now;
                 this.mast.updatedAt = now;
-                this.mast = await this.repositoryContainer.userMastRepository.addUserMast(this.mast);
+                await this.repositoryContainer.userMastRepository.addUserMast(this.mast);
             } else {
                 this.mast.updatedAt = now;
-                this.mast = await this.repositoryContainer.userMastRepository.updateUserMast(this.mast);
+                await this.repositoryContainer.userMastRepository.updateUserMast(this.mast);
             }
             this.isNew = false;
         }
