@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserMastRepositoryCacheAdaptor = void 0;
 const __1 = require("../..");
+const entities_1 = require("../../entities");
 class UserMastRepositoryCacheAdaptor {
     constructor(repository) {
         this.repository = repository;
@@ -12,25 +13,31 @@ class UserMastRepositoryCacheAdaptor {
         // private
         //
         // ===============================================================
-        this.myUser = null;
+        this.myUserID = null;
     }
     async addUserMast(input) {
         const res = await this.repository.addUserMast(input);
         this.updateCacheEach(res.userID, res);
-        this.myUser = res;
+        this.myUserID = res.userID;
         return res;
     }
     async updateUserMast(input) {
         const res = await this.repository.updateUserMast(input);
         this.updateCacheEach(res.userID, res);
-        this.myUser = res;
+        this.myUserID = res.userID;
         return res;
     }
     async fetchMyUserMast() {
-        if (this.myUser)
-            return this.myUser;
+        if (this.myUserID)
+            return this.fetchCacheUserMast(this.myUserID);
         const res = await this.repository.fetchMyUserMast();
-        this.myUser = res;
+        if (!res) {
+            throw new __1.ChillnnTrainingError(entities_1.ErrorCode.chillnnTraining_401_notSignIn);
+        }
+        else {
+            this.myUserID = res.userID;
+            this.updateCacheEach(res.userID, res);
+        }
         return res;
     }
     async fetchUserMastByUserID(userID) {

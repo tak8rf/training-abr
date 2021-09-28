@@ -1,5 +1,5 @@
-import { compareNumDesc, IUserMastRepository } from '../..';
-import { Scalars, UserMast } from '../../entities';
+import { ChillnnTrainingError, compareNumDesc, IUserMastRepository } from '../..';
+import { ErrorCode, Scalars, UserMast } from '../../entities';
 
 type UserCache = {
     [userID: string]: UserMast | 'blanc' | undefined;
@@ -13,21 +13,26 @@ export class UserMastRepositoryCacheAdaptor implements IUserMastRepository {
     async addUserMast(input: UserMast): Promise<UserMast> {
         const res = await this.repository.addUserMast(input);
         this.updateCacheEach(res.userID, res);
-        this.myUser = res;
+        this.myUserID = res.userID;
         return res;
     }
 
     async updateUserMast(input: UserMast): Promise<UserMast> {
         const res = await this.repository.updateUserMast(input);
         this.updateCacheEach(res.userID, res);
-        this.myUser = res;
+        this.myUserID = res.userID;
         return res;
     }
 
     async fetchMyUserMast(): Promise<UserMast | null> {
-        if (this.myUser) return this.myUser;
+        if (this.myUserID) return this.fetchCacheUserMast(this.myUserID) as UserMast;
         const res = await this.repository.fetchMyUserMast();
-        this.myUser = res;
+        if (!res) {
+            throw new ChillnnTrainingError(ErrorCode.chillnnTraining_401_notSignIn);
+        } else {
+            this.myUserID = res.userID;
+            this.updateCacheEach(res.userID, res);
+        }
         return res;
     }
 
@@ -56,7 +61,7 @@ export class UserMastRepositoryCacheAdaptor implements IUserMastRepository {
     // private
     //
     // ===============================================================
-    private myUser: UserMast | null = null;
+    private myUserID: string | null = null;
     private updateCacheEach(userID: Scalars['ID'], user: UserMast | null) {
         this.userEachCache[userID] = user || 'blanc';
         if (this.userAllCache && user) {
