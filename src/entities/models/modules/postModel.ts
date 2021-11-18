@@ -1,3 +1,4 @@
+import { UserModel } from '..';
 import { S3Object, Scalars } from '../..';
 import { generateUUID } from '../../..';
 import { PostMast } from '../../type';
