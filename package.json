@@ -3,7 +3,6 @@
     "description": "CHILLNN TRAINING ABR",
     "version": "1.0.6",
     "author": "",
-    "dependencies": {},
     "devDependencies": {
         "@graphql-codegen/add": "^2.0.2",
         "@graphql-codegen/cli": "^1.21.5",
