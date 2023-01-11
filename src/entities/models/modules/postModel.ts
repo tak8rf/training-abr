@@ -29,6 +29,19 @@ export class PostModel extends BaseModel<PostMast> {
         return this.mast.image.url || null;
     }
     // ============================================
+    // getter / setter
+    // ============================================
+	get description() {
+        return this.mast.description || ''
+    }
+    set description(input: string) {
+        if (input) {
+            this.mast.description = input;
+        } else {
+            this.mast.description = null;
+        }
+    }
+    // ============================================
     // validation
     // ============================================
     get isRegistable() {

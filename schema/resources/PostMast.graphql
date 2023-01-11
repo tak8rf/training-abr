@@ -2,6 +2,7 @@ type PostMast {
     postID: ID!
     ownerUserID: ID!
     image: S3Object!
+	description: String
     # status
     createdAt: AWSTimestamp!
     deletedAt: AWSTimestamp
@@ -11,7 +12,8 @@ input PostMastInput {
     postID: ID!
     ownerUserID: ID!
     image: S3ObjectInput!
-    # status
+    description: String
+		# status
     createdAt: AWSTimestamp!
     deletedAt: AWSTimestamp
 }
