@@ -57,9 +57,6 @@ export class UserModel extends BaseModel<UserMast> {
         this.mast.userIcon = await this.repositoryContainer.s3Repository.addFile(path, file);
         console.log("ccc")
     }
-    async unchi() {
-        console.log("unchi")
-    }
 
     /**
      * ユーザー情報を新規登録、または更新する
