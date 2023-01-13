@@ -27,7 +27,6 @@ export class UserModel extends BaseModel<UserMast> {
     // ============================================
     get name() {
         return this.mast.name;
-        console.log("name")
     }
     set name(input: string) {
         this.mast.name = input;
