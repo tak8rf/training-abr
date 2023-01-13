@@ -56,7 +56,9 @@ class PostModel extends _baseModel_1.BaseModel {
      */
     async setImage(file) {
         const path = `user/${this.ownerUserID}/post/${this.postID}`;
+        console.log(path);
         this.mast.image = await this.repositoryContainer.s3Repository.addFile(path, file);
+        console.log(this.mast.image);
     }
     /**
      * 投稿を行う

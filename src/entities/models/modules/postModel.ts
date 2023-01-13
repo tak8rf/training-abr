@@ -56,7 +56,9 @@ export class PostModel extends BaseModel<PostMast> {
      */
     async setImage(file: File) {
         const path = `user/${this.ownerUserID}/post/${this.postID}`;
+        console.log(path)
         this.mast.image = await this.repositoryContainer.s3Repository.addFile(path, file);
+        console.log(this.mast.image)
     }
 
     /**
