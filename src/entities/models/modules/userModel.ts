@@ -57,7 +57,7 @@ export class UserModel extends BaseModel<UserMast> {
         this.mast.userIcon = await this.repositoryContainer.s3Repository.addFile(path, file);
         console.log("ccc")
     }
-    async unchi(file: File) {
+    async unchi() {
         console.log("unchi")
     }
 
