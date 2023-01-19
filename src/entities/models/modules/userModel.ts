@@ -37,6 +37,16 @@ export class UserModel extends BaseModel<UserMast> {
     set email(input: string) {
         this.mast.email = input;
     }
+    get description() {
+        return this.mast.description || ''
+    }
+    set description(input: string) {
+        if (input) {
+            this.mast.description = input;
+        } else {
+            this.mast.description = null;
+        }
+    }
     // ============================================
     // validation
     // ============================================

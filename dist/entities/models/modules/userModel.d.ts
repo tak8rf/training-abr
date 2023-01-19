@@ -10,6 +10,8 @@ export declare class UserModel extends BaseModel<UserMast> {
     set name(input: string);
     get email(): string;
     set email(input: string);
+    get description(): string;
+    set description(input: string);
     get isRegisterble(): boolean;
     /**
      * アイコン画像をセットする

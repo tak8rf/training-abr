@@ -73,6 +73,7 @@ export type UserMast = {
   name: Scalars['String'];
   email: Scalars['String'];
   userIcon?: Maybe<S3Object>;
+  description?: Maybe<Scalars['String']>;
   createdAt: Scalars['AWSTimestamp'];
   updatedAt: Scalars['AWSTimestamp'];
 };
@@ -82,6 +83,7 @@ export type UserMastInput = {
   name: Scalars['String'];
   email: Scalars['String'];
   userIcon?: Maybe<S3ObjectInput>;
+  description?: Maybe<Scalars['String']>;
   createdAt: Scalars['AWSTimestamp'];
   updatedAt: Scalars['AWSTimestamp'];
 };
