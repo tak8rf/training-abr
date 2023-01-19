@@ -53,11 +53,11 @@ class UserModel extends _baseModel_1.BaseModel {
      * @param file
      */
     async setIcon(file) {
-        console.log("file");
+        console.log("あああ");
         const path = `user/${this.userID}/iconImage/${new Date().getTime()}`;
-        console.log("bbb");
+        console.log("いいい");
         this.mast.userIcon = await this.repositoryContainer.s3Repository.addFile(path, file);
-        console.log("ccc");
+        console.log("ううう");
     }
     /**
      * ユーザー情報を新規登録、または更新する
