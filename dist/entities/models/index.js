@@ -11,14 +11,20 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ModelFactory = void 0;
+const commentModel_1 = require("./modules/commentModel");
 const postModel_1 = require("./modules/postModel");
 const userModel_1 = require("./modules/userModel");
 const _baseModel_1 = require("./modules/_baseModel");
+__exportStar(require("./modules/commentModel"), exports);
 __exportStar(require("./modules/postModel"), exports);
 __exportStar(require("./modules/userModel"), exports);
 class ModelFactory {
     constructor(repositoryContainer) {
         this.repositoryContainer = repositoryContainer;
+    }
+    commentModel(mast, option) {
+        return new commentModel_1.CommentModel(mast, //
+        this.repositoryContainer, this, option || _baseModel_1.BaseModel.baseModelOption());
     }
     PostModel(mast, option) {
         return new postModel_1.PostModel(mast, //

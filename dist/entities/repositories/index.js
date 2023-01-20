@@ -12,6 +12,7 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RepositoryContainer = void 0;
 __exportStar(require("./modules/S3Repository"), exports);
+__exportStar(require("./modules/commentMastRepository"), exports);
 __exportStar(require("./modules/postMastRepository"), exports);
 __exportStar(require("./modules/userMastRepository"), exports);
 class RepositoryContainer {
@@ -19,8 +20,9 @@ class RepositoryContainer {
     // object
     s3Repository, //
     // entity
-    postMastRepository, userMastRepository) {
+    commentMastRepository, postMastRepository, userMastRepository) {
         this.s3Repository = s3Repository;
+        this.commentMastRepository = commentMastRepository;
         this.postMastRepository = postMastRepository;
         this.userMastRepository = userMastRepository;
     }
