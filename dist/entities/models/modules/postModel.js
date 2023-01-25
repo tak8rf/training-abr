@@ -69,5 +69,13 @@ class PostModel extends _baseModel_1.BaseModel {
             this.mast = await this.repositoryContainer.postMastRepository.addPost(this.mast);
         }
     }
+    /**
+     * アイコン画像をセットする
+     * @return
+     */
+    async fetchPostComments() {
+        const res = await this.repositoryContainer.commentMastRepository.fetchCommentsByPostID(this.postID);
+        return res.map((item) => this.modelFactory.commentModel(item));
+    }
 }
 exports.PostModel = PostModel;

@@ -1,3 +1,4 @@
+import { CommentModel } from '..';
 import { S3Object, Scalars } from '../..';
 import { PostMast } from '../../type';
 import { BaseModel } from './_baseModel';
@@ -19,4 +20,9 @@ export declare class PostModel extends BaseModel<PostMast> {
      * 投稿を行う
      */
     register(): Promise<void>;
+    /**
+     * アイコン画像をセットする
+     * @return
+     */
+    fetchPostComments(): Promise<CommentModel[]>;
 }

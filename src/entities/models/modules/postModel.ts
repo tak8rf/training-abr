@@ -1,4 +1,5 @@
 import { UserModel } from '..';
+import { CommentModel } from '..';
 import { S3Object, Scalars } from '../..';
 import { generateUUID } from '../../..';
 import { PostMast } from '../../type';
@@ -69,5 +70,14 @@ export class PostModel extends BaseModel<PostMast> {
             this.mast.createdAt = new Date().getTime();
             this.mast = await this.repositoryContainer.postMastRepository.addPost(this.mast);
         }
+    }
+
+    /**
+     * アイコン画像をセットする
+     * @return
+     */
+    async fetchPostComments(): Promise<CommentModel[]> {
+        const res = await this.repositoryContainer.commentMastRepository.fetchCommentsByPostID(this.postID);
+        return res.map((item) => this.modelFactory.commentModel(item));
     }
 }
