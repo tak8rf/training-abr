@@ -1,8 +1,18 @@
 import { UserModel } from '..';
 import { CommentMast } from '../../type';
+import { S3Object, Scalars } from '../..';
+import { generateUUID } from '../../..';
 import { BaseModel } from './_baseModel';
 
 export class CommentModel extends BaseModel<CommentMast> {
+    static getBlanc(postID: Scalars['ID'], commentUserID: Scalars['ID']): CommentMast {
+        return {
+            postID,
+            commentUserID,
+            commentID: generateUUID(),
+            createdAt: new Date().getTime(),
+        };
+    }
     // ============================================
     // getters
     // ============================================

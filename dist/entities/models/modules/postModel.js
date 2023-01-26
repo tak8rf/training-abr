@@ -1,12 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PostModel = void 0;
-const __1 = require("../../..");
+const __1 = require("..");
+const __2 = require("../../..");
 const _baseModel_1 = require("./_baseModel");
 class PostModel extends _baseModel_1.BaseModel {
     static getBlanc(ownerUserID, image) {
         return {
-            postID: __1.generateUUID(),
+            postID: __2.generateUUID(),
             ownerUserID,
             image,
             createdAt: new Date().getTime(),
@@ -70,12 +71,15 @@ class PostModel extends _baseModel_1.BaseModel {
         }
     }
     /**
-     * アイコン画像をセットする
+     * この投稿のコメントを取得する
      * @return
      */
     async fetchPostComments() {
         const res = await this.repositoryContainer.commentMastRepository.fetchCommentsByPostID(this.postID);
         return res.map((item) => this.modelFactory.commentModel(item));
+    }
+    createNewComment() {
+        return this.modelFactory.commentModel(__1.CommentModel.getBlanc(this.postID, this.ownerUserID));
     }
 }
 exports.PostModel = PostModel;

@@ -73,11 +73,15 @@ export class PostModel extends BaseModel<PostMast> {
     }
 
     /**
-     * アイコン画像をセットする
+     * この投稿のコメントを取得する
      * @return
      */
     async fetchPostComments(): Promise<CommentModel[]> {
         const res = await this.repositoryContainer.commentMastRepository.fetchCommentsByPostID(this.postID);
         return res.map((item) => this.modelFactory.commentModel(item));
+    }
+
+    createNewComment(): CommentModel {
+        return this.modelFactory.commentModel(CommentModel.getBlanc(this.postID, this.ownerUserID));
     }
 }

@@ -21,8 +21,9 @@ export declare class PostModel extends BaseModel<PostMast> {
      */
     register(): Promise<void>;
     /**
-     * アイコン画像をセットする
+     * この投稿のコメントを取得する
      * @return
      */
     fetchPostComments(): Promise<CommentModel[]>;
+    createNewComment(): CommentModel;
 }

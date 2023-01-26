@@ -1,8 +1,17 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CommentModel = void 0;
+const __1 = require("../../..");
 const _baseModel_1 = require("./_baseModel");
 class CommentModel extends _baseModel_1.BaseModel {
+    static getBlanc(postID, commentUserID) {
+        return {
+            postID,
+            commentUserID,
+            commentID: __1.generateUUID(),
+            createdAt: new Date().getTime(),
+        };
+    }
     // ============================================
     // getters
     // ============================================
