@@ -1,13 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PostModel = void 0;
-const __1 = require("..");
-const __2 = require("../../..");
+const __1 = require("../../../");
+const __2 = require("..");
+const __3 = require("../../..");
 const _baseModel_1 = require("./_baseModel");
 class PostModel extends _baseModel_1.BaseModel {
     static getBlanc(ownerUserID, image) {
         return {
-            postID: __2.generateUUID(),
+            postID: __3.generateUUID(),
             ownerUserID,
             image,
             createdAt: new Date().getTime(),
@@ -78,8 +79,16 @@ class PostModel extends _baseModel_1.BaseModel {
         const res = await this.repositoryContainer.commentMastRepository.fetchCommentsByPostID(this.postID);
         return res.map((item) => this.modelFactory.commentModel(item));
     }
-    createNewComment() {
-        return this.modelFactory.commentModel(__1.CommentModel.getBlanc(this.postID, this.ownerUserID));
+    // createNewComment(): CommentModel {
+    //     return this.modelFactory.commentModel(CommentModel.getBlanc(this.postID, this.repositoryContainer.userMastRepository.fetchMyUserMast()));
+    // }
+    async createNewComment() {
+        const me = await this.repositoryContainer.userMastRepository.fetchMyUserMast();
+        if (!me) {
+            // 存在しない場合
+            throw new __1.ChillnnTrainingError(__1.ErrorCode.chillnnTraining_404_resourceNotFound);
+        }
+        return this.modelFactory.commentModel(__2.CommentModel.getBlanc(this.postID, me.userID));
     }
 }
 exports.PostModel = PostModel;

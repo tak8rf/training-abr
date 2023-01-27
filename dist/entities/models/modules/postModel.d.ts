@@ -25,5 +25,5 @@ export declare class PostModel extends BaseModel<PostMast> {
      * @return
      */
     fetchPostComments(): Promise<CommentModel[]>;
-    createNewComment(): CommentModel;
+    createNewComment(): Promise<CommentModel>;
 }

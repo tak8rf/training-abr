@@ -1,4 +1,5 @@
 import { UserModel } from '..';
+import { ChillnnTrainingError, ErrorCode } from '../../../'
 import { CommentModel } from '..';
 import { S3Object, Scalars } from '../..';
 import { generateUUID } from '../../..';
@@ -81,7 +82,15 @@ export class PostModel extends BaseModel<PostMast> {
         return res.map((item) => this.modelFactory.commentModel(item));
     }
 
-    createNewComment(): CommentModel {
-        return this.modelFactory.commentModel(CommentModel.getBlanc(this.postID, this.ownerUserID));
+    // createNewComment(): CommentModel {
+    //     return this.modelFactory.commentModel(CommentModel.getBlanc(this.postID, this.repositoryContainer.userMastRepository.fetchMyUserMast()));
+    // }
+    async createNewComment(): Promise<CommentModel> {
+        const me = await this.repositoryContainer.userMastRepository.fetchMyUserMast();
+        if (!me) {
+            // 存在しない場合
+            throw new ChillnnTrainingError(ErrorCode.chillnnTraining_404_resourceNotFound);
+        }
+        return this.modelFactory.commentModel(CommentModel.getBlanc(this.postID, me.userID));
     }
 }
