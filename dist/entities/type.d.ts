@@ -43,6 +43,7 @@ export declare type CommentMastInput = {
 };
 export declare enum ErrorCode {
     chillnnTraining_401_notSignIn = "chillnnTraining_401_notSignIn",
+    chillnnTraining_403_resourceAccessDenied = "chillnnTraining_403_resourceAccessDenied",
     chillnnTraining_404_resourceNotFound = "chillnnTraining_404_resourceNotFound",
     chillnnTraining_500_systemError = "chillnnTraining_500_systemError"
 }
