@@ -20,6 +20,6 @@ if [ $branch != 'exit' ]; then
     echo ""
     echo ""
     echo "\033[43;31m$branch ABR TrainingをFetchします。\033[0m"
-    yarn add git+ssh://git@github.com:tak8rf/chillnn-training-abr.git#${branch}
+    yarn add git+ssh://git@github.com:tak8rf/training-abr.git#${branch}
 fi
 
